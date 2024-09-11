@@ -49,7 +49,7 @@ func printSystemMessageWithDelay(delayInSec uint8, message string) {
 
 func printIntro(update *tgbotapi.Update) {
 	printSystemMessageWithDelay(2, "Вас приветствует <b>MickyBot</b>!"+EMOJI_HI)
-	printSystemMessageWithDelay(1, "В нашем магазине вы можете приобрести персонального бота для мессенджеров: \n"+EMOJI_CHECK+"<b>Telegram</b> \n"+EMOJI_CHECK+"<b>Discord</b> \n"+EMOJI_CHECK+"<b>VK</b>")
+	printSystemMessageWithDelay(1, "В нашем магазине вы можете заказать разработку персонального бота для мессенджеров: \n"+EMOJI_CHECK+"<b>Telegram</b> \n"+EMOJI_CHECK+"<b>Discord</b> \n"+EMOJI_CHECK+"<b>VK</b>")
 	printSystemMessageWithDelay(4, EMOJI_STARLIGHT+"Делаем ботов строго под ваши задачи и в срок. \n"+EMOJI_STARLIGHT+"Разрабатываем ботов полностью с нуля на языке программирования GO.\n"+EMOJI_STARLIGHT+"Наши боты имеют высокую производительность и способны выделить вас среди конкурентов. ")
 	printSystemMessageWithDelay(4, EMOJI_VOSKL+"<b>ВНИМАНИЕ</b>"+EMOJI_VOSKL+"\nВ честь открытия магазина дарим каждому клиенту <b>скидку 50%</b>"+EMOJI_MONEYLOVE+" на любой товар.")
 }
@@ -78,7 +78,7 @@ func main() {
 			// главное меню
 			button1 := tgbotapi.NewInlineKeyboardButtonData("Заказать бота"+EMOJI_COIN, "callback_data_1")
 			button2 := tgbotapi.NewInlineKeyboardButtonData("Профиль"+EMOJI_USER, "callback_data_2")
-			button3 := tgbotapi.NewInlineKeyboardButtonData("FAQ"+EMOJI_SOS, "callback_data_3")
+			button3 := tgbotapi.NewInlineKeyboardButtonURL("FAQ"+EMOJI_SOS, "https://t.me/+bke3X2XVmlthYjky")
 			button4 := tgbotapi.NewInlineKeyboardButtonURL("Отзывы"+EMOJI_KUBOK, "https://t.me/+LVXFHgP7yv83MTk6")
 			if lastMessageID != 0 {
 				deleteMsg := tgbotapi.NewDeleteMessage(update.Message.Chat.ID, lastMessageID)
@@ -88,7 +88,7 @@ func main() {
 				}
 			}
 			// Создаем клавиатуру с кнопками
-			keyboard := tgbotapi.NewInlineKeyboardMarkup(tgbotapi.NewInlineKeyboardRow(button1), tgbotapi.NewInlineKeyboardRow(button2), tgbotapi.NewInlineKeyboardRow(button4), tgbotapi.NewInlineKeyboardRow(button3))
+			keyboard := tgbotapi.NewInlineKeyboardMarkup(tgbotapi.NewInlineKeyboardRow(button1, button2), tgbotapi.NewInlineKeyboardRow(button4, button3))
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "Выберите опцию:")
 			msg.ReplyMarkup = keyboard
 			sentMessage, err := gBot.Send(msg)
@@ -258,11 +258,11 @@ func main() {
 			case "callback_data_1_5":
 				button1 := tgbotapi.NewInlineKeyboardButtonData("Заказать бота"+EMOJI_COIN, "callback_data_1")
 				button2 := tgbotapi.NewInlineKeyboardButtonData("Профиль"+EMOJI_USER, "callback_data_2")
-				button3 := tgbotapi.NewInlineKeyboardButtonData("FAQ"+EMOJI_SOS, "callback_data_3")
+				button3 := tgbotapi.NewInlineKeyboardButtonURL("FAQ"+EMOJI_SOS, "https://t.me/+bke3X2XVmlthYjky")
 				button4 := tgbotapi.NewInlineKeyboardButtonURL("Отзывы"+EMOJI_KUBOK, "https://t.me/+LVXFHgP7yv83MTk6")
 
 				// Создаем клавиатуру с кнопками
-				keyboard := tgbotapi.NewInlineKeyboardMarkup(tgbotapi.NewInlineKeyboardRow(button1), tgbotapi.NewInlineKeyboardRow(button2), tgbotapi.NewInlineKeyboardRow(button4), tgbotapi.NewInlineKeyboardRow(button3))
+				keyboard := tgbotapi.NewInlineKeyboardMarkup(tgbotapi.NewInlineKeyboardRow(button1, button2), tgbotapi.NewInlineKeyboardRow(button4, button3))
 				msg := tgbotapi.NewMessage(callback.Message.Chat.ID, "Выберите опцию:")
 				msg.ReplyMarkup = keyboard
 
