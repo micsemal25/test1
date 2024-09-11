@@ -55,7 +55,7 @@ func printIntro(update *tgbotapi.Update) {
 }
 
 func init() {
-	_ = os.Setenv("telegram-bot-1", "7350279682:AAHyNZtabou2nQy9SHuKIqwb-P488BonX50")
+	_ = os.Setenv("telegram-bot-1", "7130037065:AAEcyb1dYaD0G55gOFHFw9x7AeoBhAVdQxQ")
 	gToken = os.Getenv("telegram-bot-1")
 	var err error
 	if gBot, err = tgbotapi.NewBotAPI(gToken); err != nil {
