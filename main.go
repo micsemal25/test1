@@ -48,9 +48,9 @@ func printSystemMessageWithDelay(delayInSec uint8, message string) {
 }
 
 func printIntro(update *tgbotapi.Update) {
-	printSystemMessageWithDelay(2, "Вас приветствует <b>MickyBot</b>!"+EMOJI_HI)
-	printSystemMessageWithDelay(1, "В нашем магазине вы можете заказать разработку персонального бота для мессенджеров: \n"+EMOJI_CHECK+"<b>Telegram</b> \n"+EMOJI_CHECK+"<b>Discord</b> \n"+EMOJI_CHECK+"<b>VK</b>")
-	printSystemMessageWithDelay(4, EMOJI_STARLIGHT+"Делаем ботов строго под ваши задачи и в срок. \n"+EMOJI_STARLIGHT+"Разрабатываем ботов полностью с нуля на языке программирования GO.\n"+EMOJI_STARLIGHT+"Наши боты имеют высокую производительность и способны выделить вас среди конкурентов. ")
+	printSystemMessageWithDelay(2, "Вас приветствует <b>MicseBot</b>!"+EMOJI_HI)
+	printSystemMessageWithDelay(1, "У нас вы можете заказать разработку персонального бота для мессенджеров: \n"+EMOJI_CHECK+"<b>Telegram</b> \n"+EMOJI_CHECK+"<b>Discord</b> \n"+EMOJI_CHECK+"<b>VK</b>")
+	printSystemMessageWithDelay(4, EMOJI_STARLIGHT+"Делаем ботов строго под ваши задачи и в срок. \n"+EMOJI_STARLIGHT+"Разрабатываем ботов полностью с нуля на языке программирования GO.\n"+EMOJI_STARLIGHT+"Наши боты имеют высокую производительность, что позволит выделить вас среди конкурентов. ")
 	printSystemMessageWithDelay(4, EMOJI_VOSKL+"<b>ВНИМАНИЕ</b>"+EMOJI_VOSKL+"\nВ честь открытия магазина дарим каждому клиенту <b>скидку 50%</b>"+EMOJI_MONEYLOVE+" на любой товар.")
 }
 
